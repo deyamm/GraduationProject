@@ -1,0 +1,40 @@
+ #container {
+     width: 400px;
+     height: 28px;
+     position: absolute;
+     top: 50%;
+     background: #efefef;
+     border-radius: 20px;
+     box-shadow: inset 0 0 4px 1px rgba(0, 0, 0, 0.2);
+     border: 3px solid #eee;
+ }
+
+ #container .r-slider-line{
+     background: #ddd;
+     border-radius: 16px;
+     box-shadow: inset 0 2px 2px 0px rgba(0, 0, 0, 0.3);
+ }
+
+ #container .r-slider-fill{
+     border-radius: 16px;
+     box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.7);
+     background: #fc9b00 repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(20, 20, 20, .1) 4px, rgba(20, 20, 20, .1) 5px);
+ }
+
+ #container .r-slider-button{
+     background: #efefef;
+     box-shadow: inset 0 3px 7px 0 rgba(0, 0, 0, 0.5);
+     border-radius: 100%;
+     text-align: center;
+ }
+
+ #container .r-slider-label{
+     position: absolute;
+     text-align: center;
+     line-height: 2px;
+     bottom: -30px;
+     font-size: 13px;
+     color: #999;
+     font-weight: bold;
+ }
+

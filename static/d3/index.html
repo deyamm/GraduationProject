@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>testd3</title>
+	<script type="text/javascript" src="./d3.min.js"></script>
+</head>
+<body>
+	<p>aaa</p>
+	<p>bbb</p>
+	<p>ccc</p>
+	<p>ddd</p>
+	<p>eee</p>
+</body>
+<script type="text/javascript">
+	var p = d3.select("body")
+	  		  .selectAll("p")
+	  		  .data([4, 8, 15, 16])
+	  		  .text(function(d){return d;});
+
+	//p.enter().append("p").text(function(d){return d;});
+
+	//p.exit().remove();
+</script>
+</html>

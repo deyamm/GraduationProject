@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		three.js
+	</title>
+    <link rel="stylesheet" href="/static/css/sliderStyle.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/bootstrap3.3.7/css/bootstrap.css">
+    <link href="/static/colorpicker/dist/css/bootstrap-colorpicker.css" type="text/css" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+		div#canvas-frame{
+			border: none;
+			cursor: pointer;
+            float: left;
+			width: 50%;
+            padding: 0;
+            margin: 0;
+			height: 100%;
+			background-color: #FFFFFF;
+			position: relative;
+		}
+		div#info{
+			width: 100px;
+			height: 170px;
+			left: 20px;
+			background-color: rgba(0, 0, 0, 0.3);
+			position: absolute;
+			visibility: hidden;
+		}
+		#info p{
+			color: #ffffff;
+			font-size: 16px;
+			text-align: center;
+			margin: 5px;
+		}
+        #barLegend{
+            position: absolute;
+            top: 60%;
+        }
+        .chart div{
+			font: 10px sans-serif;
+			background-color: steelblue;
+			text-align: right;
+			padding: 3px;
+			margin: 1px;
+			color: white;
+		}
+        #resize{
+            float: left;
+            width: 10px;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #000000;
+            cursor: ew-resize;
+            position: relative;
+        }
+        #treediv{
+            position: relative;
+            display: none;
+            float: left;
+            margin: 0;
+            padding: 0;
+            border: none;
+            height: 100%;
+        }
+        #multiLineSvg{
+            position: absolute;
+            top: 0;
+            left: 120px;
+            right: calc(1% + 60px);
+        }
+        .infoIcon{
+            position: absolute;
+            top: 0;
+            right: 1%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 999;
+        }
+        .saveIcon{
+            position: absolute;
+            top: 0;
+            right: calc(1% + 30px);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 999;
+        }
+        #multiLineDiv{
+            position: absolute;
+            top: 70%;
+            width: 100%;
+            height: 30%;
+        }
+        #barParasSet{
+            position: absolute;
+            top: 0;
+            left: -200px;
+            width: 200px;
+            background-color: #f3f3f3;
+        }
+        #barSetButton{
+            position: absolute;
+            bottom: 50%;
+        }
+        #treemapParasSet{
+            position: absolute;
+            top: -300px;
+            right: 20px;
+            width: 200px;
+            background-color: #f3f3f3;
+        }
+        #treemapSetButton{
+            position: absolute;
+            right: 0;
+            bottom: 7px;
+        }
+        #stackParasSet{
+            display: none;
+            position: absolute;
+            bottom: 100px;
+            right: 20px;
+            width: 200px;
+            background-color: #f3f3f3;
+        }
+        #stackSetButton{
+            display: none;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        #lineParasSet{
+            display: none;
+            position: absolute;
+            width: 200px;
+            left: -200px;
+            bottom: 75px;
+            background-color: #f3f3f3;
+        }
+        #lineSetButton{
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+	</style>
+</head>
+<body>
+	<div id="canvas-frame">
+        <i id="barInfo" class="fa fa-info-circle infoIcon"></i>
+        <i id="barSave" class="fa fa-save saveIcon"></i>
+		<div id="info">
+			<p id="x"></p>
+			<p id="y"></p>
+			<p id="z"></p>
+		</div>
+        <button id="barSetButton" class="btn btn-primary" data-toggle="button">设置</button>
+        <div id="container"></div>
+        <div id="barLegend"><svg id="legendSvg"></svg></div>
+        <form name="barParasSet" id="barParasSet" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-offset-1 control-label" style="text-align: left">行业区间</label>
+                <div>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="startIndex" name="startIndex" placeholder="起始" value="0">
+                    </div>
+                    <label class="col-sm-2 control-label" style="text-align: center">-</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="endIndex" name="endIndex" placeholder="结束" value="5">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="scheme" class="col-sm-5 control-label">行业级别</label>
+                <div class="col-sm-7">
+                    <select id="barIndustryLevel" name="industryLevel" class="form-control">
+                        <option>L1</option>
+                        <option>L2</option>
+                        <option>L3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dataType" class="col-sm-5 control-label">数据类型</label>
+                <div class="col-sm-7">
+                    <select id="barDataMethod" name="dataMethod" class="form-control">
+                        <option>累计</option>
+                        <option>单日</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="backgroundColor" class="col-sm-5 control-label">数据种类</label>
+                <div class="col-sm-7">
+                    <select id="barDataType" name="dataType" class="form-control">
+                        <option>流入金额</option>
+                        <option>流入量（换手）</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-offset-1 control-label">数据范围</label>
+                <div>
+                    <label class="col-sm-offset-1 col-sm-5 checkbox-inline">
+                        <input type="checkbox" id="smBar" name="sm">小单
+                    </label>
+                    <label class="col-sm-5 checkbox-inline">
+                        <input type="checkbox" id="mdBar" name="md">中单
+                    </label><br>
+                    <label class="col-sm-offset-1 col-sm-5 checkbox-inline">
+                        <input type="checkbox" id="lgBar" name="lg" checked>大单
+                    </label>
+                    <label class="col-sm-5 checkbox-inline">
+                        <input type="checkbox" id="elgBar" name="elg" checked>特大单
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-offset-1 control-label">开始日期</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="startDate" name="startDate" placeholder="开始日期：YYYYMMDD">
+                </div><br>
+                <label class="col-sm-offset-1 control-label">结束日期</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="endDate" name="endDate" placeholder="结束日期：YYYYMMDD">
+                </div>
+            </div>
+            <div style="text-align: center">
+                <a id="barOkButton" class="btn btn-default">确定</a>
+                <a id="barCancelButton" class="btn btn-default">取消</a>
+            </div>
+        </form>
+        <div id="multiLineDiv">
+            <i id="lineInfo" class="fa fa-info-circle infoIcon" style="display: none;"></i>
+            <i id="lineSave" class="fa fa-save saveIcon" style="display: none"></i>
+            <svg id="multiLineSvg"></svg>
+            <button id="lineSetButton" class="btn btn-primary" data-toggle="button">设置</button>
+            <form id="lineParasSet" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-12 control-label"></label>
+                    <label for="backgroundColor" class="col-sm-5 control-label">数据种类</label>
+                    <div class="col-sm-7">
+                        <select id="dataType" name="dataType" class="form-control">
+                            <option>流入金额</option>
+                            <option>流入量（换手）</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="scheme" class="col-sm-5 control-label">行业等级</label>
+                    <div class="col-sm-7">
+                        <select id="lineIndustryLevel" class="form-control" name="industry_level">
+                            <option id="lineL1">L1</option>
+                            <option id="lineL2">L2</option>
+                            <option id="lineL3">L3</option>
+                            <option id="lineL4">个股</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 control-label">数据范围</label>
+                        <div>
+                            <label class="col-sm-offset-1 col-sm-5 checkbox-inline">
+                                <input type="checkbox" id="lineSm" name="sm">小单
+                            </label>
+                            <label class="col-sm-5 checkbox-inline">
+                                <input type="checkbox" id="lineMd" name="md">中单
+                            </label><br>
+                            <label class="col-sm-offset-1 col-sm-5 checkbox-inline">
+                                <input type="checkbox" id="lineLg" name="lg" checked>大单
+                            </label>
+                            <label class="col-sm-5 checkbox-inline">
+                                <input type="checkbox" id="lineElg" name="elg" checked>特大单
+                            </label>
+                        </div>
+                </div>
+                <div style="text-align: center">
+                    <a id="lineOkButton" class="btn btn-default">确定</a>
+                    <a id="lineCancelButton" class="btn btn-default">取消</a>
+                </div>
+                <label class="col-sm-12 control-label"></label>
+            </form>
+        </div>
+    </div>
+
+    <div id="resize" draggable="true"></div>
+
+    <div id="treediv">
+        <div style="position: relative">
+            <i id="treemapInfo" class="fa fa-info-circle infoIcon" style="z-index: 999"></i>
+            <i id="treemapSave" class="fa fa-save saveIcon" style="z-index: 999"></i>
+            <svg id="treeSvg"></svg>
+            <button id="treemapSetButton" class="btn btn-primary" data-toggle="button">设置</button>
+        </div>
+        <form id="treemapParasSet" class="form-horizontal" role="form">
+            <label class="col-sm-12 control-label"></label>
+            <div class="form-group">
+                <label for="dataType" class="col-sm-offset-1 control-label">数据范围</label>
+                <div>
+                    <label class="col-sm-offset-1 col-sm-5 checkbox-inline">
+                        <input type="checkbox" name="sm">小单
+                    </label>
+                    <label class="col-sm-5 checkbox-inline">
+                        <input type="checkbox" name="md">中单
+                    </label><br>
+                    <label class="col-sm-offset-1 col-sm-5 checkbox-inline">
+                        <input type="checkbox" name="lg" checked>大单
+                    </label>
+                    <label class="col-sm-5 checkbox-inline">
+                        <input type="checkbox" name="elg" checked>特大单
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="scheme" class="col-sm-5 control-label">数据类型</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="dataType">
+                        <option>总量</option>
+                        <option>仅流入</option>
+                        <option>仅流出</option>
+                    </select>
+                </div>
+            </div>
+            <div style="text-align: center">
+                <a id="treemapOkButton" class="btn btn-default">确定</a>
+                <a id="treemapCancelButton" class="btn btn-default">取消</a>
+            </div>
+            <label class="col-sm-12 control-label"></label>
+        </form>
+        <div style="position: relative;">
+            <i id="stackInfo" class="fa fa-info-circle infoIcon" style="display: none;"></i>
+            <i id="stackSave" class="fa fa-save saveIcon" style="display: none"></i>
+            <svg id="stackBarSvg"></svg>
+            <button id="stackSetButton" class="btn btn-primary" data-toggle="button">设置</button>
+            <form id="stackParasSet" class="form-horizontal" role="form">
+                <label class="col-sm-12 control-label"></label>
+                <div class="form-group">
+                    <label for="days" class="col-sm-5 control-label">显示天数</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="days" name="days" placeholder="请输入显示天数" value="5">
+                    </div>
+                </div>
+                <div style="text-align: center">
+                    <a id="stackOkButton" class="btn btn-default">确定</a>
+                    <a id="stackCancelButton" class="btn btn-default">取消</a>
+                </div>
+                <label class="col-sm-12 control-label"></label>
+            </form>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="/static/d3/d3.js"></script>
+    <script src="/static/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="/static/js/r-slider.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/static/colorpicker/dist/js/bootstrap-colorpicker.js"></script>
+    <script type="text/javascript" src="/static/modules/functions.js"></script>
+    <script type="text/javascript" src="/static/bootstrap3.3.7/js/bootstrap.js"></script>
+    <script type="module">
+		import {curParas, curTreemapData, threeStart, redraw, color} from '/static/modules/moneyBar.js';
+		import {chart, curTreemapParas} from '/static/modules/moneyTreemap.js';
+        import {drawMultiLine, curLineParas} from "/static/modules/multiLine.js";
+        import {curStackParas, drawStackBar} from "/static/modules/stackBar.js";
+
+        var data = null;
+
+        //进入页面时获取初始数据
+        $.ajax({
+            type: "POST",
+            url: "/bar/bar_paras",
+            data: JSON.stringify(getFormParas("barParasSet")),
+            dataType: "json",
+            async: false,
+            success: function(gdata){
+                //console.log(gdata);
+                data = gdata;
+            }
+        });
+
+        var t_data = JSON.parse(JSON.stringify(data));
+        var data_sum = [];
+        //console.log(data);
+        var len = data["index"].length;
+        var columns = data["columns"];
+        var disabledColor = "#DCDCDC";
+        var barWidScale = 0.5;
+        var treeWidScale = 0.95 - barWidScale;
+        var start_index = 0, end_index = len - 1;
+        //绘制3D柱状图需要的参数
+        var barParas = {
+                widthScale: 1,
+                heightScale: 0.5,
+                xData: t_data["columns"],
+                yData: t_data["index"],
+                zData: t_data["sum"],
+                codes: t_data["codes"],
+                barLength: 50,
+                barWidth: 50,
+                zlen: 600,
+                xlabel: "行业",
+                ylabel: "日期",
+                zlabel: "流入金额/万元",
+                containerId: "canvas-frame",
+                infoContainerId: "info"
+        };
+        //设置一些部件的大小
+        setSize(barWidScale + treeWidScale, 0);
+
+        //为网页中各个按钮等元素添加负责辅助功能遥事件处理函数，比如控制参数栏的显示与隐藏
+        setParasEvent();
+
+        window.onload = function () {
+            threeStart(barParas);
+            $("#resize").css("visibility", "hidden");
+            $("#treediv").css("visibility", "hidden");
+        };
+		//创建滑动条，可以在网页中通过选取敬区间来获取指定时间范围内的图形
+        var mySlider = new slider({
+            container: "#container",
+            start: parseInt(data["index"][0]),
+            step: 1,
+            end: parseInt(data["index"][len-1]),
+            value:[parseInt(data["index"][0]), parseInt(data["index"][len-1])],
+            ondrag: getValue,
+            labelStep: len / 4,
+            style: {line_width: 10, button_width: 24, button_height: 24}
+        });
+
+        //根据指定的时间范围，重新绘制
+        function getValue(obj){
+            var start = String(obj.values[0]);
+            var end = String(obj.values[1]);
+            if(data["index"].indexOf(start) !== -1 && data["index"].indexOf(end) !== -1){
+                start_index = data["index"].indexOf(start);
+                end_index = data["index"].indexOf(end);
+                if(t_data["index"].length < data["index"].length){
+                    barParas["yData"] = t_data["index"] = JSON.parse(JSON.stringify(data["index"].slice(start_index, end_index+1)));
+                    barParas["zData"] = t_data["sum"] = JSON.parse(JSON.stringify(data["sum"].slice(start_index, end_index+1)));
+                }else{
+                    barParas["yData"] = t_data["index"] = t_data["index"].slice(start_index, end_index+1);
+                    barParas["zData"] = t_data["sum"] = t_data["sum"].slice(start_index, end_index+1);
+                }
+                //console.log(t_data["sum"]);
+                //console.log(data["sum"]);
+                barParas["widthScale"] = $("#canvas-frame").width() / window.innerWidth;
+                redraw(barParas);
+            }
+        }
+
+        //绘制3D柱状图的图例
+        var legends = drawLegends({
+            columns: columns,
+            color: color,
+            parentContainer: "canvas-frame",
+            container: "legendSvg"
+        });
+
+        /*
+            增删操作的位置，对于指定index，index之前1的个数为增删操作的位置
+         */
+        var alterPos = new Array();
+        for(var i = 0; i < columns.length; i++){
+            alterPos[i] = 1;
+        }
+
+        legends.on("click", function(d, i, nodes){
+            barLengendEvent(d, i, nodes);
+        });
+
+        //根据参数栏中内容获取新的数据并重新绘制3D柱状图，图例以及双端滑动条也需要重新绘制
+        $("#barOkButton").click(function(){
+            var newParas = setBarParas(curParas);
+            //console.log(newParas);
+            data["columns"] = newParas["xData"];
+            data["index"] = newParas["yData"];
+            data["sum"] = newParas["zData"];
+            t_data = JSON.parse(JSON.stringify(data));
+            legends.remove();
+            legends = drawLegends({
+                columns: newParas["xData"],
+                color: color,
+                parentContainer: "canvas-frame",
+                container: "legendSvg"
+            });
+            for(var i = 0; i < columns.length; i++){
+                alterPos[i] = 1;
+            }
+            legends.on("click", function(d, i, nodes){
+                barLengendEvent(d, i, nodes);
+            });
+            mySlider = new slider({
+                container: "#container",
+                start: parseInt(data["index"][0]),
+                step: 1,
+                end: parseInt(data["index"][data["index"].length-1]),
+                value:[parseInt(data["index"][0]), parseInt(data["index"][data["index"].length-1])],
+                ondrag: getValue,
+                labelStep: Math.floor(data["index"].length / 4),
+                style: {line_width: 10, button_width: 24, button_height: 24}
+            });
+            start_index = 0;
+            end_index = data["index"].length - 1;
+            redraw(newParas);
+            return false;
+        });
+
+        //下载3D柱状图数据
+        $("#barSave").click(function(){
+            barSaveClick(curParas)
+        });
+
+        //根据矩形树图参数栏内容获取新的数据并绘制图形
+        $("#treemapOkButton").click(function(){
+            var newParas = setTreemapParas({
+                industry_name: curTreemapData["name"],
+                industry_code: curTreemapData["code"],
+                date: curTreemapData["date"],
+                paras: curTreemapParas
+            });
+            d3.select("#treeSvg").selectAll("g").remove();
+            chart(newParas);
+            return false;
+        });
+        //下载矩形树图数据
+        $("#treemapSave").click(function(){
+            treemapSaveClick(curTreemapData);
+        });
+
+        //根据多重折线图的参数栏内容获取数据并重新绘制图形
+        $("#lineOkButton").click(function(){
+            var paras = setLineParas(curLineParas);
+            d3.select("#multiLineSvg").selectAll("g").remove();
+            drawMultiLine(paras);
+            return false;
+        });
+        //下载多重折线图的数据
+        $("#lineSave").click(function(){
+            lineSaveClick(curLineParas);
+        });
+
+        //根据堆叠折线图的参数栏内容获取数据并重新绘制
+        $("#stackOkButton").click(function(){
+            var paras = setStackParas(curStackParas);
+            d3.select("#stackBarSvg").selectAll("g").remove();
+            drawStackBar(paras);
+            return false;
+        });
+        //下载堆叠柱状图的数据
+        $("#stackSave").click(function(){
+            stackSaveClick(curStackParas);
+        });
+
+        //3D柱状图图例的点击事件，用于隐藏或显示指定行业的数据
+        function barLengendEvent(d, i, nodes){
+            if(nodes[i].children[0].attributes.fill.value !== disabledColor){
+                nodes[i].children[0].attributes.fill.value = disabledColor;
+                nodes[i].children[1].attributes.fill.value = disabledColor;
+                var pos = getPos(alterPos, i);
+                t_data["columns"].splice(pos, 1);
+                t_data["codes"].splice(pos, 1);
+                //console.log(data["columns"].length);
+                for(var j = 0; j < t_data["sum"].length; j++){
+                    t_data["sum"][j].splice(pos, 1);
+                }
+                //console.log(t_data["sum"]);
+                //console.log(data["sum"]);
+                barParas["xData"] = t_data["columns"];
+                barParas["zData"] = t_data["sum"];
+                barParas["codes"] = t_data["codes"];
+                barParas["widthScale"] = $("#canvas-frame").width() / window.innerWidth;
+                redraw(barParas);
+                alterPos[i] = 0;
+            }else{
+                nodes[i].children[0].attributes.fill.value = color(d);
+                nodes[i].children[1].attributes.fill.value = "#000000";
+                var pos = getPos(alterPos, i);
+                t_data["columns"].splice(pos, 0, data["columns"][i]);
+                t_data["codes"].splice(pos, 0, data["codes"][i]);
+                //console.log(start_index + " " +  end_index);
+                for(var j = start_index; j <= end_index; j++){
+                    //console.log(start_index + " " + end_index);
+                    t_data["sum"][j-start_index].splice(pos, 0, data["sum"][j][i]);
+                }
+                //console.log(data["sum"]);
+                barParas["xData"] = t_data["columns"];
+                barParas["zData"] = t_data["sum"];
+                barParas["codes"] = t_data["codes"];
+                //console.log(t_data["sum"]);
+                barParas["widthScale"] = $("#canvas-frame").width() / window.innerWidth;
+                redraw(barParas);
+                alterPos[i] = 1;
+            }
+        }
+	</script>
+    <script type="module" src="/static/modules/components.js"></script>
+</body>
+</html>

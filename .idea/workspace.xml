@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a7fcba61-78b7-4223-901f-c0c0991d57e8" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="stock" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SjFdShRFiEzR2nR96niqZ5VwBV" />
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Flask server.Flask (app.py)">
+    <configuration name="functions" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="stock" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/functions.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="get_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="stock" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/get_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="money_flow" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="stock" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/money_flow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="read_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="stock" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/init_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (app.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
+      <module name="stock" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="untitled1" type="Python.FlaskServer">
+      <module name="stock" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flask server.Flask (app.py)" />
+        <item itemvalue="Python.functions" />
+        <item itemvalue="Python.money_flow" />
+        <item itemvalue="Python.get_data" />
+        <item itemvalue="Python.read_data" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d1c120ae" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a7fcba61-78b7-4223-901f-c0c0991d57e8" name="Default Changelist" comment="" />
+      <created>1572069184531</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572069184531</updated>
+      <workItem from="1572069190325" duration="23000" />
+      <workItem from="1572069232297" duration="7400000" />
+      <workItem from="1572154964620" duration="540000" />
+      <workItem from="1572155522321" duration="3143000" />
+      <workItem from="1572167584318" duration="8472000" />
+      <workItem from="1572241408843" duration="8825000" />
+      <workItem from="1572254779829" duration="975000" />
+      <workItem from="1572255771184" duration="3706000" />
+      <workItem from="1572329998477" duration="15742000" />
+      <workItem from="1572348925990" duration="2173000" />
+      <workItem from="1572353057725" duration="269000" />
+      <workItem from="1572353367622" duration="1123000" />
+      <workItem from="1572418473202" duration="12638000" />
+      <workItem from="1572505241896" duration="9554000" />
+      <workItem from="1572592171356" duration="5411000" />
+      <workItem from="1572609354137" duration="2051000" />
+      <workItem from="1572677144374" duration="1312000" />
+      <workItem from="1572678777156" duration="580000" />
+      <workItem from="1572679368606" duration="2543000" />
+      <workItem from="1572693922224" duration="2989000" />
+      <workItem from="1572766846967" duration="1543000" />
+      <workItem from="1572947185633" duration="5039000" />
+      <workItem from="1573467566952" duration="1653000" />
+      <workItem from="1574070692240" duration="2720000" />
+      <workItem from="1577081340933" duration="2992000" />
+      <workItem from="1577180073347" duration="72000" />
+      <workItem from="1577170328977" duration="1064000" />
+      <workItem from="1577177338162" duration="11000" />
+      <workItem from="1577178275906" duration="560000" />
+      <workItem from="1577181986736" duration="148000" />
+      <workItem from="1577445936403" duration="591000" />
+      <workItem from="1577446557311" duration="1847000" />
+      <workItem from="1577519232653" duration="2272000" />
+      <workItem from="1582097474588" duration="3069000" />
+      <workItem from="1582102156266" duration="3713000" />
+      <workItem from="1582113690085" duration="1352000" />
+      <workItem from="1582362312734" duration="8410000" />
+      <workItem from="1582427006781" duration="11527000" />
+      <workItem from="1582510571117" duration="17068000" />
+      <workItem from="1582621175707" duration="9071000" />
+      <workItem from="1582680201104" duration="3695000" />
+      <workItem from="1582703200989" duration="7718000" />
+      <workItem from="1582786075072" duration="14055000" />
+      <workItem from="1582853653673" duration="7400000" />
+      <workItem from="1582940001460" duration="14265000" />
+      <workItem from="1583062557176" duration="5034000" />
+      <workItem from="1583133072056" duration="13719000" />
+      <workItem from="1583219170483" duration="11742000" />
+      <workItem from="1583288749322" duration="24240000" />
+      <workItem from="1583370975738" duration="21499000" />
+      <workItem from="1583456946003" duration="6391000" />
+      <workItem from="1583544272855" duration="17399000" />
+      <workItem from="1583631093436" duration="3609000" />
+      <workItem from="1583655404321" duration="8473000" />
+      <workItem from="1583720282108" duration="15639000" />
+      <workItem from="1583821929585" duration="10425000" />
+      <workItem from="1583889544614" duration="30036000" />
+      <workItem from="1583976027530" duration="15595000" />
+      <workItem from="1584061925888" duration="8012000" />
+      <workItem from="1584149086312" duration="19594000" />
+      <workItem from="1584183492837" duration="4515000" />
+      <workItem from="1584234937094" duration="24960000" />
+      <workItem from="1584321047202" duration="20687000" />
+      <workItem from="1584407020721" duration="162000" />
+      <workItem from="1584407311709" duration="14470000" />
+      <workItem from="1584493364129" duration="13438000" />
+      <workItem from="1584580041788" duration="5761000" />
+      <workItem from="1584666671677" duration="1205000" />
+      <workItem from="1584683756699" duration="599000" />
+      <workItem from="1584752768673" duration="1806000" />
+      <workItem from="1584796621408" duration="610000" />
+      <workItem from="1584841040915" duration="2013000" />
+      <workItem from="1584925988338" duration="21018000" />
+      <workItem from="1585013162279" duration="15165000" />
+      <workItem from="1585097757857" duration="25580000" />
+      <workItem from="1585180342191" duration="12635000" />
+      <workItem from="1585270776705" duration="17051000" />
+      <workItem from="1585356212192" duration="24543000" />
+      <workItem from="1585445103895" duration="3427000" />
+      <workItem from="1585534975853" duration="1904000" />
+      <workItem from="1585619449011" duration="19688000" />
+      <workItem from="1585700882926" duration="7029000" />
+      <workItem from="1585791821277" duration="16662000" />
+      <workItem from="1585879372158" duration="19334000" />
+      <workItem from="1585963757760" duration="8121000" />
+      <workItem from="1586048793221" duration="19053000" />
+      <workItem from="1586160699717" duration="2000000" />
+      <workItem from="1586224337553" duration="6645000" />
+      <workItem from="1586309345051" duration="3680000" />
+      <workItem from="1586390920148" duration="5130000" />
+      <workItem from="1586422504972" duration="599000" />
+      <workItem from="1586427375290" duration="932000" />
+      <workItem from="1586488385047" duration="1202000" />
+      <workItem from="1586567456920" duration="6900000" />
+      <workItem from="1586607140038" duration="599000" />
+      <workItem from="1586654897123" duration="9219000" />
+      <workItem from="1586741008046" duration="2390000" />
+      <workItem from="1586825431972" duration="12412000" />
+      <workItem from="1586914294147" duration="57000" />
+      <workItem from="1586915707852" duration="16654000" />
+      <workItem from="1586999930731" duration="23042000" />
+      <workItem from="1587086122965" duration="11303000" />
+      <workItem from="1587191683399" duration="13501000" />
+      <workItem from="1587259652579" duration="26702000" />
+      <workItem from="1587344535201" duration="16767000" />
+      <workItem from="1587433110266" duration="12629000" />
+      <workItem from="1587518225155" duration="24395000" />
+      <workItem from="1587611414248" duration="19271000" />
+      <workItem from="1587691179228" duration="23483000" />
+      <workItem from="1587775330604" duration="22594000" />
+      <workItem from="1587863934219" duration="23715000" />
+      <workItem from="1587950607093" duration="10473000" />
+      <workItem from="1588030643593" duration="5914000" />
+      <workItem from="1588156252517" duration="599000" />
+      <workItem from="1588207492007" duration="599000" />
+      <workItem from="1588295323159" duration="523000" />
+      <workItem from="1588295941209" duration="601000" />
+      <workItem from="1588378342055" duration="599000" />
+      <workItem from="1588490391082" duration="599000" />
+      <workItem from="1588554579014" duration="599000" />
+      <workItem from="1588647199979" duration="599000" />
+      <workItem from="1588727500368" duration="599000" />
+      <workItem from="1588812596934" duration="599000" />
+      <workItem from="1588899740494" duration="2458000" />
+      <workItem from="1588994718230" duration="2006000" />
+      <workItem from="1589072483864" duration="1218000" />
+      <workItem from="1589164719899" duration="1213000" />
+      <workItem from="1589245570142" duration="10123000" />
+      <workItem from="1589329507539" duration="12858000" />
+      <workItem from="1589424377329" duration="599000" />
+      <workItem from="1589505640186" duration="1859000" />
+      <workItem from="1589523609069" duration="2397000" />
+      <workItem from="1589592198729" duration="599000" />
+      <workItem from="1589791117339" duration="11468000" />
+      <workItem from="1589863968883" duration="8285000" />
+      <workItem from="1589954782810" duration="4382000" />
+      <workItem from="1590022802295" duration="17104000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/stock$get_data.coverage" NAME="get_data Coverage Results" MODIFIED="1577520905150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/stock$functions.coverage" NAME="functions Coverage Results" MODIFIED="1588035130256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/stock$read_data.coverage" NAME="read_data Coverage Results" MODIFIED="1572948461349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/stock$money_flow.coverage" NAME="money_flow Coverage Results" MODIFIED="1587796026363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/stock$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1590048719723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled1$untitled1.coverage" NAME="untitled1 Coverage Results" MODIFIED="1572072274212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
